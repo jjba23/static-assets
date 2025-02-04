@@ -9,3 +9,4 @@ For hosting on the web, it is recommendable to resize images to more moderate si
 #+begin_src
   mogrify -resize 1386x1040 *.jpg
 #+end_src
+
