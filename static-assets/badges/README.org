@@ -5,3 +5,20 @@ Making badges with shields.io
 https://raster.shields.io/badge/Rust-1.84-d0730f.png?logo=rust
 
 https://raster.shields.io/badge/Keycloak-26.1-412f4f.png?logo=keycloak&logoColor=white
+
+#+begin_src scheme
+  (setq ss-urls
+      '("https://jointhefreeworld.org/static-assets/badges/Rust-1.84-d0730f.png"
+        "https://jointhefreeworld.org/static-assets/badges/Nix-Flake-118ea1.png"
+        "https://jointhefreeworld.org/static-assets/badges/Kafka-6.1.1-501a2d.png"
+        "https://jointhefreeworld.org/static-assets/badges/PostgreSQL-17.2-0f3f4f.png"
+        "https://jointhefreeworld.org/static-assets/badges/Keycloak-26.1-412f4f.png"
+        "https://jointhefreeworld.org/static-assets/badges/PopServer-0.3.0-4e3930.png"
+        ))
+
+(mapcar
+ (lambda(x)
+   (shell-command (format "cd ~/Ontwikkeling/Persoonlijk/pop-test/resources/img/ && wget %s"
+                          x)))
+ ss-urls)
+#+end_src
