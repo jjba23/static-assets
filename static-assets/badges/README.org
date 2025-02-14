@@ -1,0 +1,7 @@
+#+title: Project and technology badges 
+
+Making badges with shields.io
+
+https://raster.shields.io/badge/Rust-1.84-d0730f.png?logo=rust
+
+https://raster.shields.io/badge/Keycloak-26.1-412f4f.png?logo=keycloak&logoColor=white
