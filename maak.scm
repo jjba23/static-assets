@@ -2,7 +2,7 @@
   #:use-module (maak maak)
   #:declarative? #t)
 
-(define deploy-dir "/src/http/jointhefreeworld.org")
+(define deploy-dir "/srv/http/jointhefreeworld.org")
 
 (define (deploy)
   "Deploy the static assets."
