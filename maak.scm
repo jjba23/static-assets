@@ -1,10 +1,11 @@
 (define-module (maak)
-  #:use-module (maak maak)
-  #:declarative? #t)
+  #:declarative? #t
+  #:use-module (maak maak))
 
-(define deploy-dir "/srv/http/jointhefreeworld.org")
+(define deploy-dir
+  "/srv/http/jointhefreeworld.org")
 
 (define (deploy)
   "Deploy the static assets."
   (delete-file-recursively (~ "~a/static-assets" deploy-dir))
-  ($ (list (~ "cp -rfv static-assets ~a/" deploy-dir))))
+  (cp "static-assets" (~ "~a/" deploy-dir)))
