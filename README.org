@@ -2,6 +2,14 @@
 
 static assets and images to be used for different projects
 
+** Fonts
+
+~static-assets/fonts/~ serves the typography every project shares: Work Sans,
+Source Serif 4 and JuliaMono, all three libre and all three self-hosted here so
+that no page asks a font service for its type. See
+[[file:static-assets/fonts/README.md][the font directory's README]] for the file
+names, the subsets, the licences and where each family came from.
+
 ** Image sizes
 
 For hosting on the web, it is recommendable to resize images to more moderate sizes.
@@ -21,4 +29,4 @@ Our core principle is simple: *AI should assist human creativity and problem-sol
 
 While tools like Large Language Models (LLMs) and interactive chatbots can be beneficial for reviewing, refactoring small functions, or acting as a sounding board, they should be used with moderation.
 
-We require a human in the loop for all contributions. The use of autonomous AI agents to automatically generate and submit pull requests to this project is strictly prohibited.
+We require a human in the loop for all contributions.
