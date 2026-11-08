@@ -1,0 +1,43 @@
+# static-assets
+#
+# SPDX-License-Identifier: MIT
+# Copyright © 2025-2026 Josep Bigorra <jjbigorra@gmail.com>
+#
+# One job, handed to the deployment, which runs `maak deploy' where the assets
+# are served: the task replaces /srv/http/jointhefreeworld.org/static-assets
+# with the tree of this commit, so a push to trunk is a deployment and there is
+# no second description of it here to keep in step.
+#
+# The pipeline was Woodpecker's and moves with the repository: this calls the
+# same Byggsteg job byggsteg-woodpecker sent -- a task name, plus the project,
+# branch and clone URL the bridge fills in from the run.
+
+name: CI
+
+on:
+  push:
+    branches: [trunk]
+  # Asking for a run by hand matters after the serving machine is rebuilt: the
+  # copy on disk is then older than the repository, and no commit is going to
+  # arrive that would name it.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+# One deploy at a time per branch: two runs replacing the same directory can
+# finish in either order, and the older commit must not be the one that stays.
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  byggsteg:
+    name: 🧱 Byggsteg
+    uses: jjba23/byggsteg-github/.github/workflows/byggsteg.yml@trunk
+    with:
+      tasks: maak-deploy
+      # The bridge polls the job eight seconds apart and gives up after 4096
+      # polls; 450 is an hour, longer than copying this tree takes.
+      poll-limit: "450"
+    secrets: inherit
