@@ -45,4 +45,5 @@ in a stack is the framework's business (`olive-css` names Work Sans, Source
 Serif 4 and JuliaMono as its `font-sans`, `font-serif` and `font-mono`); this
 host only serves the files.
 
-Nothing here is proprietary: no Lucida face, and no Intel One Mono, is served.
+Every file here is free to redistribute: three families, all under the SIL Open
+Font License, whose texts sit beside them.
